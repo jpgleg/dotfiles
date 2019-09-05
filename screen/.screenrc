@@ -1,0 +1,14 @@
+# disable bell and startup message
+vbell off
+startup_message off
+
+# automatically update titles, where possible
+shelltitle "$ |bash"
+
+# UTF8 and scrollback
+defutf8 on
+defscrollback 10000
+
+# status line
+hardstatus alwayslastline
+hardstatus string '%{wk}[ %H ] %{= kw}%-Lw%{= kW}%50> %n%f* %t%{= kw}%+Lw%< %{= kw}%-=%l'
