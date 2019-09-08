@@ -2,7 +2,7 @@
 # Written by xscreensaver-demo 5.42 for john on Wed Sep  4 19:49:11 2019.
 # https://www.jwz.org/xscreensaver/
 
-timeout:	0:03:00
+timeout:	0:10:00
 cycle:		0:10:00
 lock:		True
 lockTimeout:	0:00:00
@@ -11,7 +11,7 @@ visualID:	default
 installColormap:    True
 verbose:	False
 timestamp:	True
-splash:		True
+splash:		False
 splashDuration:	0:00:05
 demoCommand:	xscreensaver-demo
 prefsCommand:	xscreensaver-demo -prefs
@@ -32,14 +32,14 @@ dpmsOff:	0:30:00
 grabDesktopImages:  False
 grabVideoFrames:    False
 chooseRandomImages: False
-imageDirectory:	
+imageDirectory:
 
 mode:		one
 selected:	142
 
 textMode:	url
 textLiteral:	XScreenSaver
-textFile:	
+textFile:
 textProgram:	fortune
 textURL:	https://planet.debian.org/rss20.xml
 
@@ -288,4 +288,3 @@ procInterrupts:	True
 xinputExtensionDev: False
 overlayStderr:	True
 authWarningSlack:   20
-
