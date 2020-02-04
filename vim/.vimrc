@@ -1,14 +1,13 @@
 set nocompatible
 let g:netrw_dirhistmax=0
 
+syntax on
+filetype plugin indent on
+
 " tab and space settings
 set autoindent
-set smarttab
-set expandtab
 set ruler
-set shiftwidth=2
-set tabstop=2
-set softtabstop=2
+set tabstop=4 softtabstop=0 expandtab shiftwidth=2 smarttab
 
 " Strip trailing whitespaces on save.
 fun! <SID>StripTrailingWhitespaces()
@@ -60,9 +59,6 @@ autocmd FileType go AutoFormatBuffer gofmt
 " Don't use bells.
 set noerrorbells visualbell t_vb=
 autocmd GUIEnter * set visualbell t_vb=
-
-syntax on
-filetype plugin indent on
 
 set t_Co=256
 colorscheme molokai
