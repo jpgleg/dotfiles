@@ -1,4 +1,5 @@
 set nocompatible
+set rtp+=$GOPATH/src/golang.org/x/lint/misc/vim
 let g:netrw_dirhistmax=0
 
 syntax on
@@ -18,6 +19,10 @@ fun! <SID>StripTrailingWhitespaces()
   call cursor(l, c)
 endfun
 au BufWritePre * :call <SID>StripTrailingWhitespaces()
+
+let g:go_fmt_command = "goimports"
+let g:go_auto_type_info = 1
+autocmd BufWritePost,FileWritePost *.go execute 'Lint' | cwindow
 
 " highlight matching brackets
 :set showmatch
@@ -53,8 +58,6 @@ ab nwe new
 ab serach search
 :map :W :w
 :map :Q :q
-
-autocmd FileType go AutoFormatBuffer gofmt
 
 " Don't use bells.
 set noerrorbells visualbell t_vb=

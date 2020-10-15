@@ -25,9 +25,14 @@ export TZ='America/Los_Angeles'
 umask 0026
 
 # Source various files and other bash utilities
+export GOROOT="/usr/lib/go-1.14"
+export GOPATH="${HOME}/go"
 source_files=(
   "${HOME}/.bash_aliases"
   "${HOME}/bin"
+  "${GOPATH}"
+  "${GOPATH}/bin"
+  "${GOROOT}"
   '/etc/bash_completion'
 )
 
@@ -40,3 +45,7 @@ for filename in ${source_files[@]}; do
     fi
   fi
 done
+
+export GPG_TTY="$(tty)"
+export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
+gpgconf --launch gpg-agent
