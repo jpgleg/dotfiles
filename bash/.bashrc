@@ -5,8 +5,6 @@ export HISTCONTROL=ignoreboth
 export HISTIGNORE="cd:cd ..:ls:ls -al:history:tmux:screen:top:[bf]g:exit:logout"
 export HISTSIZE=1000000
 export HISTTIMEFORMAT=""
-# Update history as soon as we write it.
-trap 'history -a; history -n' DEBUG
 
 shopt -s checkwinsize cdspell checkhash cmdhist histappend no_empty_cmd_completion
 
@@ -18,6 +16,7 @@ if [[ "$TERM" =~ xterm*|rxvt* ]]; then
   title_string='echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD/$HOME/~}\007"'
   PROMPT_COMMAND="${title_string}"
 fi
+PROMPT_COMMAND="history -a; ${PROMPT_COMMAND}"
 
 # set some default variables
 export EDITOR='vim -p'
@@ -25,14 +24,11 @@ export TZ='America/Los_Angeles'
 umask 0026
 
 # Source various files and other bash utilities
-export GOROOT="/usr/lib/go-1.14"
 export GOPATH="${HOME}/go"
 source_files=(
   "${HOME}/.bash_aliases"
   "${HOME}/bin"
-  "${GOPATH}"
   "${GOPATH}/bin"
-  "${GOROOT}"
   '/etc/bash_completion'
 )
 
@@ -46,6 +42,8 @@ for filename in ${source_files[@]}; do
   fi
 done
 
-export GPG_TTY="$(tty)"
-export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
-gpgconf --launch gpg-agent
+if [[ "${HOSTNAME}" == *"myrkul"* ]]; then
+  export GPG_TTY="$(tty)"
+  export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
+  gpgconf --launch gpg-agent
+fi
