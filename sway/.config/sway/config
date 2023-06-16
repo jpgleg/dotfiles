@@ -1,0 +1,54 @@
+# config for sway
+# Read `man 5 sway` for a complete reference.
+
+# theme folder and variables
+set $theme $HOME/.config/sway/themes/matcha-green
+include $theme/definitions
+
+# global variables; system default at /etc/sway/definitions
+# copied into local .config for ease of reference/overrides
+include $HOME/.config/sway/definitions
+
+include /etc/sway/inputs/*
+input type:touchpad {
+    dwt enabled
+    tap enabled
+    # turn off backwards scrolling
+    natural_scroll disabled
+}
+
+# autohide mouse cursor
+seat seat0 hide_cursor 3000
+
+# remap capslock to Esc
+input "type:keyboard" {
+    xkb_layout "us"
+    xkb_options caps:escape
+}
+
+include /etc/sway/outputs/*
+output eDP-1 scale 1
+output  DP-1 scale 1
+
+# lid and display management
+set $laptop eDP-1
+exec_always $HOME/lid.sh
+# TODO: Debug/extend this behavior a bit more; might be blocked on
+# https://github.com/Alexays/Waybar/issues/1674
+# bindswitch --reload --locked lid:on output $laptop disable
+# bindswitch --reload --locked lid:off output $laptop enable
+
+# user variables
+include $HOME/.config/sway/definitions.d/*.conf
+
+# enable modes
+include /etc/sway/modes/*
+
+# only enable this if every app you use is compatible with wayland
+# xwayland disable
+
+# include additional configs e.g. to autostart applications
+include /etc/sway/config.d/*
+
+# user config
+include $HOME/.config/sway/config.d/*.conf
