@@ -35,8 +35,8 @@ set $laptop eDP-1
 exec_always $HOME/lid.sh
 # TODO: Debug/extend this behavior a bit more; might be blocked on
 # https://github.com/Alexays/Waybar/issues/1674
-# bindswitch --reload --locked lid:on output $laptop disable
-# bindswitch --reload --locked lid:off output $laptop enable
+bindswitch --reload --locked lid:on output $laptop disable
+bindswitch --reload --locked lid:off output $laptop enable
 
 # user variables
 include $HOME/.config/sway/definitions.d/*.conf
