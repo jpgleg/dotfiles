@@ -10,6 +10,12 @@ include $theme/definitions
 include $HOME/.config/sway/definitions
 
 include /etc/sway/inputs/*
+
+input "Logitech MX Master 3" {
+  accel_profile "flat"
+  pointer_accel 1
+}
+
 input type:touchpad {
     dwt enabled
     tap enabled
