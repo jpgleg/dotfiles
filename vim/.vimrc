@@ -1,9 +1,9 @@
 set nocompatible
-set rtp+=$GOPATH/src/golang.org/x/lint/misc/vim
 let g:netrw_dirhistmax=0
 
 syntax on
 filetype plugin indent on
+let g:sls_use_jinja_syntax=1
 
 " tab and space settings
 set autoindent
@@ -20,9 +20,18 @@ fun! <SID>StripTrailingWhitespaces()
 endfun
 au BufWritePre * :call <SID>StripTrailingWhitespaces()
 
+" tune fatih-go settings
+let g:go_list_type = "quickfix"
 let g:go_fmt_command = "goimports"
-let g:go_auto_type_info = 1
-autocmd BufWritePost,FileWritePost *.go execute 'Lint' | cwindow
+" go lint, go build, go test, go run
+autocmd FileType go nmap <leader>l <Plug>(go-lint)
+autocmd FileType go nmap <leader>b <Plug>(go-build)
+autocmd FileType go nmap <leader>t <Plug>(go-test)
+autocmd FileType go nmap <leader>r <Plug>(go-run)
+" quickfix pane from GoLint
+map <C-n> :cn<CR>
+map <C-m> :cp<CR>
+nnoremap <leader>a :cclose<CR>
 
 " highlight matching brackets
 :set showmatch
