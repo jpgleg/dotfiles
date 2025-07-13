@@ -1,27 +1,19 @@
 # config for sway
 # Read `man 5 sway` for a complete reference.
 
-# theme folder and variables
-set $theme $HOME/.config/sway/themes/matcha-green
-include $theme/theme.conf
-
 include /etc/sway/inputs/*
 include /etc/sway/outputs/*
 
-# global variables
-include /etc/sway/definitions
+# theme folder and variables
+set $theme $HOME/.config/sway/themes/matcha-green
+set $background $HOME/.config/sway/themes/swaybg.png
+include $theme/theme.conf
 
-# user variables
+
+# user variables (cloned out of global definitions)
 include $HOME/.config/sway/definitions.d/*.conf
+include $HOME/.config/sway/modes/*
 
-# enable modes
-include /etc/sway/modes/*
-
-# only enable this if every app you use is compatible with wayland
-# xwayland disable
-
-# include additional configs e.g. to autostart applications
-include /etc/sway/config.d/*
-
-# user config
+# keep system application defaults for upstream updates, but clone the rest into local configs.
+include /etc/sway/config.d/*application-defaults.conf
 include $HOME/.config/sway/config.d/*.conf

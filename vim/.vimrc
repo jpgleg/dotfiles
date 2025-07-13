@@ -1,10 +1,6 @@
 set nocompatible
 let g:netrw_dirhistmax=0
 
-syntax on
-filetype plugin indent on
-let g:sls_use_jinja_syntax=1
-
 " tab and space settings
 set autoindent
 set ruler
@@ -19,6 +15,10 @@ fun! <SID>StripTrailingWhitespaces()
   call cursor(l, c)
 endfun
 au BufWritePre * :call <SID>StripTrailingWhitespaces()
+
+syntax on
+filetype plugin indent on
+let g:sls_use_jinja_syntax=1
 
 " tune fatih-go settings
 let g:go_list_type = "quickfix"
