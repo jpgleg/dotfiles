@@ -35,7 +35,6 @@
         "backlight",
 
         // system
-        "custom/adaptive-light",
         "custom/sunset",
         "custom/pacman",
 
@@ -287,21 +286,6 @@
         "on-click-right": "/usr/share/sway/scripts/dnd.sh restore",
         "exec": "/usr/share/sway/scripts/dnd.sh status",
         "signal": 11
-    },
-
-    "custom/adaptive-light": {
-        "interval": "once",
-        "tooltip": true,
-        "return-type": "json",
-        "format": "{icon}",
-        "format-icons": {
-            "on": "󰃡",
-            "off": "󰃠"
-        },
-        "exec": "/usr/share/sway/scripts/wluma.sh",
-        "on-click": "/usr/share/sway/scripts/wluma.sh toggle",
-        "exec-if": "/usr/share/sway/scripts/wluma.sh check",
-        "signal": 12
     },
 
     "custom/idle_inhibitor": {
