@@ -25,7 +25,7 @@
         "temperature",
         "battery",
         // connecting
-        "network",
+        // "network" disabled in favor of nm-applet, for now.
         "bluetooth",
         // media
         "custom/playerctl",
@@ -84,8 +84,7 @@
         "tooltip-format-ethernet": "{icon} {ifname}: {ipaddr}",
         "tooltip-format-wifi": "{icon} {ifname} ({essid}): {ipaddr}",
         "tooltip-format-disconnected": "{icon} disconnected",
-        "tooltip-format-disabled": "{icon} disabled",
-         "on-click": "swaymsg exec \\$once nm-connection-editor"
+        "tooltip-format-disabled": "{icon} disabled"
     },
 
     "sway/mode": {

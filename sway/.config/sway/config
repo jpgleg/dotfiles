@@ -9,11 +9,10 @@ set $theme $HOME/.config/sway/themes/matcha-green
 set $background $HOME/.config/sway/themes/swaybg.png
 include $theme/theme.conf
 
-
 # user variables (cloned out of global definitions)
 include $HOME/.config/sway/definitions.d/*.conf
+include $HOME/.config/sway/config.d/*.conf
 include $HOME/.config/sway/modes/*
 
 # keep system application defaults for upstream updates, but clone the rest into local configs.
 include /etc/sway/config.d/*application-defaults.conf
-include $HOME/.config/sway/config.d/*.conf
